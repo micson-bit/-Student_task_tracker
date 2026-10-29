@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f6f7fb" />
+  <meta name="description" content="A calm, simple planner for your study tasks and assignments." />
+  <title>Studyflow — Your study planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Main navigation">
+      <a class="brand" href="#" aria-label="Studyflow home"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12.5 4.2 4.2L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>studyflow<span class="brand-period">.</span></span></a>
+      <p class="nav-caption">WORKSPACE</p>
+      <nav class="nav-links">
+        <a class="nav-link active" href="#tasks"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>My tasks</a>
+        <a class="nav-link" href="#overview"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 19V5m0 14h16M8 15l3-4 3 2 5-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Overview</a>
+      </nav>
+      <div class="sidebar-tip"><span class="tip-icon" aria-hidden="true">✳</span><p class="tip-title">One step at a time.</p><p class="tip-copy">Small, focused sessions add up to big progress.</p></div>
+      <div class="profile"><div class="avatar" aria-hidden="true">S</div><div><strong>Student</strong><span>Keep up the great work</span></div><span class="profile-dots" aria-hidden="true">···</span></div>
+    </aside>
+
+    <main class="main-content" id="tasks">
+      <header class="topbar"><span class="breadcrumb">Workspace <span>/</span> My tasks</span><div class="today-pill"><span class="status-dot"></span><span id="today-label">Your study space</span></div></header>
+      <section class="welcome" aria-labelledby="welcome-title">
+        <div><p class="eyebrow">YOUR PERSONAL STUDY SPACE</p><h1 id="welcome-title">Make room for <span>what matters.</span></h1><p class="welcome-copy">Keep your assignments organized and make progress at your own pace.</p></div>
+        <div class="welcome-art" aria-hidden="true"><span class="sun"></span><span class="art-spark spark-one">✳</span><span class="art-spark spark-two">✦</span><span class="art-book"><span></span></span><span class="art-pencil"></span></div>
+      </section>
+
+      <section class="stats" aria-label="Study progress">
+        <article class="stat-card"><div class="stat-top"><span class="stat-icon icon-violet"><svg viewBox="0 0 24 24" fill="none"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="stat-note">In your planner</span></div><strong class="stat-value" id="total-count">0</strong><span class="stat-label">Total tasks</span></article>
+        <article class="stat-card"><div class="stat-top"><span class="stat-icon icon-green"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12.5 4.2 4.2L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="stat-note">Look at you go</span></div><strong class="stat-value" id="completed-count">0</strong><span class="stat-label">Completed</span></article>
+        <article class="stat-card progress-card"><div class="stat-top"><span class="stat-icon icon-peach"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v9l6.36 6.36M21 12a9 9 0 1 1-9-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="stat-note">Keep the momentum</span></div><div class="progress-row"><strong class="stat-value" id="progress-percent">0%</strong><span class="stat-label">of your tasks done</span></div><div class="progress-track" role="progressbar" aria-label="Tasks completed" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-bar"><span id="progress-fill"></span></div></article>
+      </section>
+
+      <section class="task-section" aria-labelledby="tasks-title">
+        <div class="section-heading"><div><p class="eyebrow">YOUR CHECKLIST</p><h2 id="tasks-title">Study tasks <span class="task-count" id="heading-count">0</span></h2></div><span class="sorted-label"><span aria-hidden="true">↕</span> Your tasks, your pace</span></div>
+        <form class="add-form" id="task-form" novalidate><label class="visually-hidden" for="task-input">Assignment or study task</label><span class="input-icon" aria-hidden="true">＋</span><input id="task-input" type="text" maxlength="120" placeholder="Add an assignment, reading, or study goal..." autocomplete="off" aria-describedby="form-message" /><button class="add-button" type="submit"><span>＋</span> Add task</button></form>
+        <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+        <div class="task-list" id="task-list" aria-live="polite"></div>
+        <div class="list-footer" id="list-footer"><span><span class="footer-dot"></span> Saved automatically on this device</span><button id="clear-completed" type="button" class="clear-button" hidden>Clear completed</button></div>
+      </section>
+      <footer class="page-footer">Made for your next small step <span aria-hidden="true">✳</span></footer>
+    </main>
+  </div>
+</body>
+</html>
